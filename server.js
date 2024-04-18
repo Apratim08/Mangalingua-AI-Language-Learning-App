@@ -20,8 +20,8 @@ const app = express();
 //   before our custom request handlers are invoked.
 app.use(
   // The built-in `express.static` middleware directs Express to look in a particular directory
-  //   (the local 'public' directory, in our case) for files requested by clients. For example,
-  //   if the user visits `/a.html`, Express will look for `public/a.html` and, if the file is
+  //   (the local 'code' directory, in our case) for files requested by clients. For example,
+  //   if the user visits `/a.html`, Express will look for `code/a.html` and, if the file is
   //   found, read the contents of the file and return those contents to the user.
   // This is especially useful for assets without dynamic content like images, .css, and .js files,
   //   since we can add them to our project folder and use them without having to ask the server
@@ -29,7 +29,7 @@ app.use(
   // Note that `express.static` will send the contents of `index.html` if no path is specified
   //   (i.e. http://localhost:8000/), as is standard. You can configure this if you'd like:
   //   https://expressjs.com/en/4x/api.html#express.static
-  express.static('public/'),
+  express.static('code/'),
 );
 
 // That said, we don't *need* to have a file in the filesystem for every route on the server.
@@ -71,25 +71,25 @@ app.get('/add/:first/:second', (request, response) => {
 // Try visiting http://localhost:8000/a rather than http://localhost:8000/a.html -- you'll notice that
 //   it works just the same!
 app.get('/aitranslator', async (request, response) => {
-  const htmlContents = await fs.readFile('public/aitranslator.html');
+  const htmlContents = await fs.readFile('code/aitranslator.html');
   response.status(200).send(htmlContents.toString());
 });
 
 // Express has a helper function for this, so we don't need to use the filesystem library directly:
 app.get('/individualword', (request, response) => {
-  response.status(200).sendFile('public/individualword.html', { root: __dirname }); // We do need to tell Express where to look!
+  response.status(200).sendFile('code/individualword.html', { root: __dirname }); // We do need to tell Express where to look!
 });
 
 app.get('/c', (request, response) => {
-  response.status(200).sendFile('public/c.html', { root: __dirname });
+  response.status(200).sendFile('code/c.html', { root: __dirname });
 });
 
 app.get('/d', (request, response) => {
-  response.status(200).sendFile('public/d.html', { root: __dirname });
+  response.status(200).sendFile('code/d.html', { root: __dirname });
 });
 
 app.get('/wordlist', (request, response) => {
-  response.status(200).sendFile('public/wordlist.html', { root: __dirname });
+  response.status(200).sendFile('code/wordlist.html', { root: __dirname });
 });
 
 // Now, we can access our HTML using these more convenient `/a`, `/b`, and `/c` routes.
