@@ -1,0 +1,128 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Noto Sans JP', sans-serif;
+  background: #252525;
+}
+
+.navbar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  background-color: #252525;
+}
+
+.back-button {
+  text-decoration: none;
+  font-size: 40px;
+  color: white
+}
+
+.menu-container {
+  margin-top: 20px; 
+  display: flex;
+  justify-content: center;
+}
+
+.title {
+  font-size: 36px;
+  font-weight: 400;
+  font-family: 'Reem Kufi Ink', sans-serif;
+  color: white;
+  animation: fadeIn 2s ease-in-out; 
+  animation-delay: 0.5s; 
+  visibility: hidden; 
+}
+
+.menu-container a {
+  display: inline-block;
+  padding: 5px 10px; 
+  margin: 0 10px; 
+  color: black;
+  font-size: 18px;
+  font-weight: 700;
+  text-decoration: none;
+  background-color: #32FF77; 
+  border: 2px solid black; 
+  border-radius: 10px; 
+  transition: background-color 0.3s ease;
+}
+
+.menu-container a:hover {
+  background-color: #26D662; /* Change color on hover */
+}
+
+.container {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start; /* Align to the top of the page */
+  height: 100vh;
+  display:none;
+}
+
+.subtitle {
+  font-size: 16px;
+  font-weight: 400;
+  color: white;
+  margin-bottom: 20px;
+}
+
+.options {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.option {
+  width: 296px;
+  height: 90px;
+  margin-bottom: 20px;
+  background: white;
+  border-radius: 20px;
+  border: 5px #32FF77 solid;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: black;
+  font-size: 20px;
+  font-weight: 700;
+  font-family: 'Noto Sans JP', sans-serif;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  text-decoration: none;
+}
+
+.option:hover {
+  background-color: #32FF77;
+  color: #ffffff;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateX(-20px); /* Animation from left to center */
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0); /* Animation to center */
+  }
+}
+
+@keyframes fadeInFromRight {
+  from {
+    opacity: 0;
+    transform: translateX(20px); /* Start off the screen to the right */
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0); /* Move to the center */
+  }
+}
+
+
+
+
